@@ -1,26 +1,27 @@
-# There is a remote code execution vulnerability in the project management of Wanxing Technology's Yitu project
+# Ruijie NBR3000D-E gateway has information leakage vulnerability
 
 ## Overview
-Manufacturer's address：[(https://www.wondershare.cn/)]
+Manufacturer's address：[(https://113.93.51.149:4430/main.htm)]
 ## Vulnerability impact
-Wanxing Technology's Yitu project Management Software 3.2.2
+Ruijie NBR3000D-E gateway
 ## Vulnerability location
-The expe.dpx project file is actually a zip compressed file, which can be used to construct special file names, resulting in unexpected paths when opening and decompressing the project file to a temporary directory
-<br /> <img width="415" alt="image" src="https://github.com/zty007666/Shenzhen-Yitu-Software-Yitu-Project-Management-Software/assets/26759286/01ca0d6a-e118-4498-8729-267178393839">
+/tool/shell/postgresql.conf
 ## Vulnerability details
-There is a remote code execution vulnerability in the project management of Wanxing Technology's Yitu project.Attackers can use the exp.adpx project file as a zip compressed file to construct a special file name, which can be used to decompress the project file into the system startup folder, restart the system, and automatically execute the constructed attack script 
+Ruijie Network is a professional network manufacturer with a full range of network equipment product lines and solutions, including switches, routers, software, security firewalls, wireless products, storage, and more. There is an information leakage vulnerability in the Ruijie NBR3000D-E gateway, which allows attackers to obtain server privileges and cause the server to crash 
 ## Vulnerability verify
-[(https://www.wondershare.cn/shop.html)]
-<br /> 1.Win+r (run) "shell: startup" Open the startup folder and there is no calc.exe program file in the folder
-<br /> <img width="415" alt="image" src="https://github.com/zty007666/Shenzhen-Yitu-Software-Yitu-Project-Management-Software/assets/26759286/1f3fe98b-3ddb-4fe0-8628-ff49b9ec3da4">
-<br /> 2.Double click to open the project file exp.adpx and wait for the file to open
-<br /> <img width="415" alt="image" src="https://github.com/zty007666/Shenzhen-Yitu-Software-Yitu-Project-Management-Software/assets/26759286/feae17aa-9b6d-4736-a160-d3d9710038fa">
-<br /> 3.Win+r (run) "shell: startup" Open the startup folder
-<br /> <img width="297" alt="image" src="https://github.com/zty007666/Shenzhen-Yitu-Software-Yitu-Project-Management-Software/assets/26759286/1a3a62fc-a6d0-4d4d-8f42-d8d8e57defde">
-<br /> 4.See that calc.exe has been released into the startup folder
-<br /> <img width="415" alt="image" src="https://github.com/zty007666/Shenzhen-Yitu-Software-Yitu-Project-Management-Software/assets/26759286/a5583363-dbe8-414e-9556-73a68c2e7008">
-<br /> 5.Restart the computer and wait for the system to start to see calc.exe running automatically.
-<br /> <img width="415" alt="image" src="https://github.com/zty007666/Shenzhen-Yitu-Software-Yitu-Project-Management-Software/assets/26759286/b7b48578-aecf-480e-8abf-aa1b1ee88d34">
-<br /> 6.verification has been successful
-## remaining assets
-https://www.wondershare.cn/shop.html
+[(https://113.93.51.149:4430/main.htm)]
+<br />1.Code analysis
+<br />The configuration file postgresql.exe has not been authenticated, resulting in direct access to the configuration file by the frontend.
+<br />![alt text](image.png)
+<br />And the following code includes the authentication file mvc/controller/core.controller.php, as shown in the following figure:The function point containing authentication files requires login
+<br />![alt text](image-1.png)
+<br />![alt text](image-2.png)
+<br />2.Vulnerability reproduction
+<br />https://113.93.51.149:4430/main.htm
+<br />The login interface is shown in the figure
+<br />admin/lwd1012
+<br />![alt text](image-3.png)
+<br />Accessing without logging in
+<br />https://113.93.51.149:4430/tool/shell/postgresql.conf，You can view the PostgreSQL configuration file
+<br />![alt text](image-4.png)
+<br />![alt text](image-5.png)
